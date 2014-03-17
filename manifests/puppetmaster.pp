@@ -35,7 +35,10 @@ class role::puppetmaster (
   # }
 
   # PuppetDB config
-  class { 'puppetdb': }
+  class { 'puppetdb':
+    listen_address      => '0.0.0.0',
+    ssl_listen_address  => '0.0.0.0',
+  }
   class { 'puppetdb::master::config': }
 
   package { 'r10k':
