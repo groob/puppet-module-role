@@ -34,6 +34,10 @@ class role::puppetmaster (
   #   priority   => '10',
   # }
 
+  # PuppetDB config
+  class { 'puppetdb': }
+  class { 'puppetdb::master::config': }
+
   package { 'r10k':
     ensure   => present,
     provider => gem,
