@@ -82,13 +82,13 @@ class role::puppetmaster (
   }
 
   exec { 'instantiate_environments':
-    command => '/opt/puppet/bin/r10k deploy environment',
+    command => '/usr/bin/r10k deploy environment',
     creates => $r10k_environments_dir,
   }
 
   exec { 'instantiate_production_modules':
     cwd     => '/etc/puppetlabs/puppet/environments/production',
-    command => '/opt/puppet/bin/r10k puppetfile install',
+    command => '/usr/bin/r10k puppetfile install',
     creates => "${r10k_environments_dir}/modules",
     require => Exec['instantiate_environments'],
   }
