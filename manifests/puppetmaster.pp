@@ -3,7 +3,7 @@
 #
 class role::puppetmaster (
   $r10k_environments_dir    = '/etc/puppet/environments',
-  $r10k_environments_remote = 'https://github.com/groob/puppet-environments',
+  $r10k_environments_remote = 'https://github.com/groob/puppet-environments.git',
   $srv_root                 = '/var/seteam-files',
 ) {
   include git
