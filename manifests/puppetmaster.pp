@@ -7,6 +7,7 @@ class role::puppetmaster (
   $srv_root                 = '/var/seteam-files',
 ) {
   include git
+  include profile::common
   # PuppetDB config
   class { 'puppetdb':
     listen_address      => '0.0.0.0',
