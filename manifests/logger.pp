@@ -16,11 +16,6 @@ class role::logger {
     proto   => 'tcp',
     action  => 'accept',
   }
-  firewall { '110 nat accept trusted':
-    source => hiera('trusted_ip'),
-    proto  => 'all',
-    action => 'accept',
-  }
   firewall { '210 nat deny all':
     proto  => 'all',
     action => 'drop',
