@@ -14,8 +14,14 @@ class role::logger {
     proto   => 'tcp',
     action  => 'accept',
   }
-  firewall { '110 apache accept all':
-    dport  => '80',
+  firewall { '110 nat accept whitby':
+    source => '47.19.62.200/29',
+    proto  => 'all',
+    action => 'accept',
+  }
+  firewall { '210 nat deny all':
+    proto  => 'all',
+    action => 'drop',
   }
 }
 
