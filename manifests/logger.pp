@@ -6,6 +6,8 @@ class role::logger {
   include profile::logstash
   include profile::elasticsearch
   include profile::kibana
+
+  # Firewall rules
   include profile::firewall
   Firewall {
     require => Class['profile::firewall::pre'],
@@ -14,7 +16,7 @@ class role::logger {
     proto   => 'tcp',
     action  => 'accept',
   }
-  firewall { '110 nat accept whitby':
+  firewall { '110 nat accept trusted':
     source => '47.19.62.200/29',
     proto  => 'all',
     action => 'accept',

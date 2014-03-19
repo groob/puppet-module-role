@@ -10,7 +10,12 @@
     remote:  '<%= @r10k_environments_remote %>'
     basedir: '<%= @r10k_environments_dir %>'
 
+  :hiera:
+    remote:  '<%= @r10k_hiera_remote %>'
+    basedir: '<%= @r10k_hiera_dir %>'
+
 # This directory will be purged of any directory that doesn't map to a
 # git branch
 :purgedirs:
   - '<%= @r10k_environments_dir %>'
+  - '<%= @r10k_hiera_dir %>'
