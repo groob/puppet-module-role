@@ -14,6 +14,9 @@ class role::logger {
     proto   => 'tcp',
     action  => 'accept',
   }
-  firewall { '110 apache allow all':       dport  => '80';    }
+  firewall { '110 apache deny all':
+    action => 'deny',
+    dport  => '80',
+  }
 }
 
