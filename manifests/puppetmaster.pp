@@ -60,7 +60,7 @@ class role::puppetmaster (
     path    => '/etc/puppet/puppet.conf',
     section => 'main',
     setting => 'hiera_config',
-    value   => "${r10k_environments_dir}/production/hiera.yaml"
+    value   => '/etc/puppet/hiera.yaml',
   }
 
   Exec {
