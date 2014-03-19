@@ -15,7 +15,7 @@ class role::logger {
     action  => 'accept',
   }
   firewall { '110 apache deny all':
-    action => 'deny',
+    action => 'drop',
     dport  => '80',
   }
 }
