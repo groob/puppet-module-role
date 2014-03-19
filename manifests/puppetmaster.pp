@@ -33,6 +33,14 @@ class role::puppetmaster (
     content => template('role/puppetmaster/r10k.yaml.erb'),
   }
 
+  file { '/etc/puppet/hiera.yaml':
+    ensure  => present,
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0644',
+    content => template('role/puppetmaster/hiera.yaml.erb'),
+  }
+
   ini_setting { 'puppet_modulepath':
     ensure  => present,
     path    => '/etc/puppet/puppet.conf',
@@ -48,7 +56,7 @@ class role::puppetmaster (
     value   => "${r10k_environments_dir}/\$environment/manifests/site.pp"
   }
   ini_setting { 'puppet_hieraconfig':
-    ensure  => present,
+    ensure  => absent,
     path    => '/etc/puppet/puppet.conf',
     section => 'main',
     setting => 'hiera_config',
