@@ -56,7 +56,7 @@ class role::puppetmaster (
     value   => "${r10k_environments_dir}/\$environment/manifests/site.pp"
   }
   ini_setting { 'puppet_hieraconfig':
-    ensure  => absent,
+    ensure  => present,
     path    => '/etc/puppet/puppet.conf',
     section => 'main',
     setting => 'hiera_config',
